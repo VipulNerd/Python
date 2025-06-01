@@ -34,14 +34,14 @@ benign_dir = '/Users/vamhaze/Downloads/Benign'
 X_malignant, y_malignant = load_and_preprocess_images(malignant_dir, 1)
 X_benign, y_benign = load_and_preprocess_images(benign_dir, 0)
 
-# Combine the datasets
+
 X = np.vstack((X_malignant, X_benign))
 y = np.concatenate((y_malignant, y_benign))
 
-# Split the data
+
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Scale the features
+
 scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
